@@ -62,7 +62,7 @@ namespace WpfApplication1
 
         }
 
-        private void InsertUserTab(string usname)
+        public void InsertUserTab(string usname)
         {
 
             //usersname.CommandText = "INSERT INTO users (name) VALUES ('usname');";
@@ -75,7 +75,7 @@ namespace WpfApplication1
            
         }
 
-        private void InsertMessageTab(string message, string names)
+        public void InsertMessageTab(string message, string names)
         {
             Int64 integer;
 
@@ -83,22 +83,49 @@ namespace WpfApplication1
             Usersmess.Parameters["@messages"].Value = message;
             Usersmess.Parameters["us_id"].Value = integer;
 
-            Usersmess.ExecuteNonQuery();
+            Usersname.ExecuteNonQuery();
         
          }
 
-        private string GetMessage(string names)
+        public List<string> GetMessage(string names)
         {
+            List<string> tmpmessage = new List<string>();
+
             Int64 integer;
 
             integer = Int64.Parse(Usersname.CommandText = "SELECT id FROM users WHERE name=names");
 
             string mes;
             mes = Usersname.CommandText = "SELECT messages FROM message WHERE us_id=integer".ToString();
+            SQLiteDataReader m = Usersname.ExecuteReader();
+            while (m.Read())
+            {
+                tmpmessage.Add(Convert.ToString(m["messages"]));
+
+            }
 
 
-            return mes; 
+
+            Usersmess.ExecuteNonQuery(); // chgitem es piti lini te che
+           return tmpmessage; 
         
+        }
+
+
+        public  List<string> GetUsersList()
+        {
+            List<string> userlist = new List<string>();
+
+            
+                    Usersname.CommandText = "SELECT name FROM message";
+                    SQLiteDataReader r = Usersname.ExecuteReader();
+                    while (r.Read())
+                    {
+                       userlist.Add(Convert.ToString(r["name"]));
+
+                    }
+                           
+            return userlist;
         }
         
        
