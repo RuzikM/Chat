@@ -12,6 +12,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Sockets;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Net.Sockets;
+using System.IO;
+using System.Threading;
+
+
 
 namespace WpfApplication1
 {
@@ -29,6 +36,16 @@ namespace WpfApplication1
         {
             //Test
             // Ruzik
+        }
+
+        private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void listBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
