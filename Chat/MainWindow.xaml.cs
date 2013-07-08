@@ -55,7 +55,16 @@ namespace WpfApplication1
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            if (textBox1.Text != null)
+            {
 
+
+
+                listBox2.Items.Add(login.templogin + ":" + " " + textBox1.Text);
+
+                textBox1.Text = "";
+
+            }
         }
     }
 }

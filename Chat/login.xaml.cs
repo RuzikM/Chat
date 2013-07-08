@@ -43,11 +43,16 @@ namespace WpfApplication1
         public static string templogin;
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            templogin = textBox1.Text;
-            MainWindow win = new MainWindow();
-            win.Show();
 
-            this.Hide();
+            if (textBox1.Text.Length != 0)
+            {
+                templogin = textBox1.Text;
+                MainWindow win = new MainWindow();
+                win.Show();
+
+                this.Hide();
+            }
+            textBox1.Text = "Eneter Nicname";
             
         }
     }
