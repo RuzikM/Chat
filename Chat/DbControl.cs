@@ -87,11 +87,11 @@ namespace WpfApplication1
         
          }
 
-        private string GetMessage(string name)
+        private string GetMessage(string names)
         {
             Int64 integer;
 
-            integer = Int64.Parse(Usersname.CommandText = "SELECT id FROM users WHERE name=name");
+            integer = Int64.Parse(Usersname.CommandText = "SELECT id FROM users WHERE name=names");
 
             string mes;
             mes = Usersname.CommandText = "SELECT messages FROM message WHERE us_id=integer".ToString();
