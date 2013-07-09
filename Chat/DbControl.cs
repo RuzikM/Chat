@@ -75,11 +75,11 @@ namespace WpfApplication1
            
         }
 
-        private void InsertMessageTab(string message, string name)
+        private void InsertMessageTab(string message, string names)
         {
             Int64 integer;
 
-             integer=Int64.Parse( Usersname.CommandText = "SELECT id FROM users WHERE name=name");
+             integer=Int64.Parse( Usersname.CommandText = "SELECT id FROM users WHERE name=names");
             Usersmess.Parameters["@messages"].Value = message;
             Usersmess.Parameters["us_id"].Value = integer;
 
