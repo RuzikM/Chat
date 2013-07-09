@@ -17,6 +17,7 @@ using System.ComponentModel;
 //using System.Net.Sockets;
 using System.IO;
 using System.Threading;
+using System.ComponentModel;
 
 
 
@@ -28,6 +29,8 @@ namespace WpfApplication1
     public partial class MainWindow : Window
     {
         List<Clients> userlist = new List<Clients>();
+        string databaseName = @"data.db";
+
         public MainWindow()
         {
            
@@ -46,7 +49,7 @@ namespace WpfApplication1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-
+            
         }
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

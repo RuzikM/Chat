@@ -11,9 +11,13 @@ namespace WpfApplication1
     class DbControl
     {
         string databaseName = @"data.db";
-
+       
+        SQLiteCommand Usersname;
+        SQLiteCommand Usersmess;
         static DbControl DBmanage=null;
         private SQLiteConnection connection;
+        SQLiteDataReader sqlite_datareader;
+
 
         private DbControl()
         {
@@ -38,13 +42,18 @@ namespace WpfApplication1
                 SQLiteConnection.CreateFile(databaseName);
                 connection = new SQLiteConnection(string.Format("Data Source={0};", databaseName));
 
-                SQLiteCommand usersname =
-                    new SQLiteCommand("CREATE TABLE users (Id integer PRIMARY KEY NOT NULL AUTOINCREMENT , name  varchar(200) NOT NULL);", connection);
-                // erexeq 2-rd tablen ela stex creat linum?
-                // SQLiteCommand Userschat =
-                //new SQLiteCommand("CREATE TABLE message (Id integer PRIMARY KEY NOT NULL AUTOINCREMENT , messages  varchar(200) NOT NULL, U-Id INTEGER  NOT NULL);", connection);
                 connection.Open();
-                usersname.ExecuteNonQuery();
+
+                               
+                SQLiteCommand Usersname  = connection.CreateCommand();
+                Usersname.CommandText = "CREATE TABLE users (id integer primary key AUTOINCREMENT, name varchar(200));";
+                   // Usersname.CommandText =("CREATE TABLE users (Id integer PRIMARY KEY NOT NULL AUTOINCREMENT , name  varchar(200) NOT NULL);", connection);
+                Usersname.ExecuteNonQuery();
+
+                SQLiteCommand Usersmess  = connection.CreateCommand();
+                Usersmess.CommandText = "CREATE TABLE message (id integer primary key AUTOINCREMENT, messages varchar(400), us_id integer);";
+                
+                Usersmess.ExecuteNonQuery();
                 connection.Close();
 
             }
@@ -53,13 +62,45 @@ namespace WpfApplication1
 
         }
 
-        
-        private void DBinsertUsername(string username)
+        private void InsertUserTab(string usname)
         {
-            SQLiteCommand command = new SQLiteCommand("INSERT INTO 'users' ('id', 'name') VALUES (1, 'username');", connection);
-            command.ExecuteNonQuery();
 
+            //usersname.CommandText = "INSERT INTO users (name) VALUES ('usname');";
+            
+          
+           Usersname.Parameters["@name"].Value = usname;
 
+           Usersname.ExecuteNonQuery();
+
+           
         }
+
+        private void InsertMessageTab(string message, string name)
+        {
+            Int64 integer;
+
+             integer=Int64.Parse( Usersname.CommandText = "SELECT id FROM users WHERE name=name");
+            Usersmess.Parameters["@messages"].Value = message;
+            Usersmess.Parameters["us_id"].Value = integer;
+
+            Usersmess.ExecuteNonQuery();
+        
+         }
+
+        private string GetMessage(string name)
+        {
+            Int64 integer;
+
+            integer = Int64.Parse(Usersname.CommandText = "SELECT id FROM users WHERE name=name");
+
+            string mes;
+            mes = Usersname.CommandText = "SELECT messages FROM message WHERE us_id=integer".ToString();
+
+
+            return mes; 
+        
+        }
+        
+       
     }
 }
