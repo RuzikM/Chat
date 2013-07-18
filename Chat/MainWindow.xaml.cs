@@ -27,17 +27,23 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<user> userlist = new List<user>();
         public MainWindow()
         {
+           
             InitializeComponent();
+            login obj = new login();
+            string text = obj.text ;
+            listBox1.Items.Add(text);
+
+            listBox1.Foreground = new SolidColorBrush(Colors.White);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //Test
-            // Ruzik
-        }
 
+
+        }
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

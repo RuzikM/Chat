@@ -18,9 +18,35 @@ namespace WpfApplication1
     /// </summary>
     public partial class login : Window
     {
+        public string text;
         public login()
         {
             InitializeComponent();
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void image1_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
+        }
+
+        private void image1_ImageFailed_1(object sender, ExceptionRoutedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow win = new MainWindow();
+            win.Show();
+            text = textBox1.Text;
+            this.Hide();
+            
         }
     }
 }
