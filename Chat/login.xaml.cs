@@ -18,7 +18,7 @@ namespace WpfApplication1
     /// </summary>
     public partial class login : Window
     {
-        public string text;
+        
         public login()
         {
             InitializeComponent();
@@ -39,12 +39,13 @@ namespace WpfApplication1
         {
 
         }
-
+        public static string templogin;
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            templogin = textBox1.Text;
             MainWindow win = new MainWindow();
             win.Show();
-            text = textBox1.Text;
+
             this.Hide();
             
         }

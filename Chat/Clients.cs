@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WpfApplication1
 {
-    class user
+    class Clients
     {
         public string name { get; set; }
     }

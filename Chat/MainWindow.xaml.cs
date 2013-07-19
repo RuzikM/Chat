@@ -27,16 +27,15 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<user> userlist = new List<user>();
+        List<Clients> userlist = new List<Clients>();
         public MainWindow()
         {
            
             InitializeComponent();
             login obj = new login();
-            string text = obj.text ;
-            listBox1.Items.Add(text);
+            listBox1.Items.Add(login.templogin);
 
-            listBox1.Foreground = new SolidColorBrush(Colors.White);
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
