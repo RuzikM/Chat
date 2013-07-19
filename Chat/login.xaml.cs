@@ -44,7 +44,7 @@ namespace WpfApplication1
         private void button1_Click(object sender, RoutedEventArgs e)
         {
 
-            if (textBox1.Text.Length != 0)
+            if (textBox1.Text.Length != 0 && !textBox1.Text.Equals("Enter Nickname!"))
             {
                 templogin = textBox1.Text;
                 MainWindow win = new MainWindow();
@@ -52,8 +52,18 @@ namespace WpfApplication1
 
                 this.Hide();
             }
-            textBox1.Text = "Eneter Nicname";
+            textBox1.Text = "Enter Nickname!";
             
+        }
+
+        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void textBox1_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox1.Text = "";
         }
     }
 }

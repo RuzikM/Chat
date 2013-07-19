@@ -59,7 +59,7 @@ namespace WpfApplication1
             {
 
 
-
+            
                 listBox2.Items.Add(login.templogin + ":" + " " + textBox1.Text);
 
                 textBox1.Text = "";
