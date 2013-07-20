@@ -9,7 +9,7 @@ namespace WpfApplication1
 {
     class Server
     {
-        public void ReceiveUsername() 
+        public string ReceiveUsername() 
         {
             Socket sock = new Socket(AddressFamily.InterNetwork,
                       SocketType.Dgram, ProtocolType.Udp);
@@ -17,15 +17,16 @@ namespace WpfApplication1
             sock.Bind(iep);
             EndPoint ep = (EndPoint)iep;
 
-            byte[] data = new byte[1024];
-            string stringData = Encoding.ASCII.GetString(data);
+            
+                
+                byte[] zdata = new byte[1024];
+                int recv = sock.ReceiveFrom(zdata, ref ep);
+                string stringData = Encoding.ASCII.GetString(zdata);
 
-            data = new byte[1024];
-            recv = sock.ReceiveFrom(data, ref ep);
-            stringData = Encoding.ASCII.GetString(data, 0, recv);
-            Console.WriteLine("received: {0}  from: {1}",
-                                  stringData, ep.ToString());
-            sock.Close();
+                return stringData;
+            
+          
+            
  
         }
 

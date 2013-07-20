@@ -34,9 +34,12 @@ namespace WpfApplication1
             InitializeComponent();
             login obj = new login();
             listBox1.Items.Add(login.templogin);
+
             Clients client = new Clients();
             client.SendName(login.templogin); // send login trough UDP
 
+            
+            
             
         }
 
@@ -63,6 +66,9 @@ namespace WpfApplication1
              listBox2.Items.Add(message);
              textBox1.Text = "";
 
+            Server server = new Server();
+             string us = server.ReceiveUsername(); // send login trough UDP 
+             listBox2.Items.Add(us);
 
            
         }
