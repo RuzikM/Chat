@@ -34,6 +34,8 @@ namespace WpfApplication1
             InitializeComponent();
             login obj = new login();
             listBox1.Items.Add(login.templogin);
+            Clients client = new Clients();
+            client.SendName(login.templogin); // send login trough UDP
 
             
         }
@@ -55,16 +57,14 @@ namespace WpfApplication1
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox1.Text != null)
-            {
+             Clients client = new Clients();
+             string message=login.templogin + ":" + " " + textBox1.Text;
+             client.SendMessage(message);//sending message trough UDP
+             listBox2.Items.Add(message);
+             textBox1.Text = "";
 
 
-            
-                listBox2.Items.Add(login.templogin + ":" + " " + textBox1.Text);
-
-                textBox1.Text = "";
-
-            }
+           
         }
     }
 }

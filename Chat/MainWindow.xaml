@@ -18,7 +18,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <ListBox Grid.Column="1" Height="253" HorizontalAlignment="Left" Margin="6,23,0,0" Name="listBox2" VerticalAlignment="Top" Width="519" Grid.ColumnSpan="2" SelectionChanged="listBox2_SelectionChanged" Background="#B16C6C6C" Foreground="{x:Null}" />
+        <ListBox Grid.Column="1" Height="253" HorizontalAlignment="Left" Margin="6,23,0,0" Name="listBox2" VerticalAlignment="Top" Width="519" Grid.ColumnSpan="2" SelectionChanged="listBox2_SelectionChanged" Background="#B16C6C6C" Foreground="White" IsEnabled="True"></ListBox>
         <Label Content="BUDDIES" Height="28" HorizontalAlignment="Left" Margin="37,-3,0,0" Name="label1" VerticalAlignment="Top" Width="90" Foreground="White" FontFamily="Playbill" FontSize="22" />
     </Grid>
     <Window.Background>
