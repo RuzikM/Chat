@@ -66,9 +66,7 @@ namespace WpfApplication1
              listBox2.Items.Add(message);
              textBox1.Text = "";
 
-            Server server = new Server();
-             string us = server.ReceiveUsername(); // send login trough UDP 
-             listBox2.Items.Add(us);
+            
 
            
         }
