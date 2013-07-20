@@ -61,10 +61,18 @@ namespace WpfApplication1
         private void button1_Click(object sender, RoutedEventArgs e)
         {
              Clients client = new Clients();
-             string message=login.templogin + ":" + " " + textBox1.Text;
-             client.SendMessage(message);//sending message trough UDP
-             listBox2.Items.Add(message);
-             textBox1.Text = "";
+             
+             
+             try {
+                 string message = login.templogin + ":" + " " + textBox1.Text;
+                 string sendmsg = "*"+listBox1.SelectedItem.ToString()+"*";
+                 client.SendMessage(sendmsg + message); //sending message trough UDP}
+                 listBox2.Items.Add(message);
+                 textBox1.Text = "";
+             }
+             catch { }
+             
+             
 
             
 
