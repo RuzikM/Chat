@@ -58,7 +58,7 @@ namespace WpfApplication1
 
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            
         }
 
         private void textBox1_GotFocus(object sender, RoutedEventArgs e)

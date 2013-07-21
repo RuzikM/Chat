@@ -9,27 +9,32 @@ namespace WpfApplication1
 {
     class Server
     {
-        public string ReceiveUsername() 
+
+        public void GetMessage(ref string a)
         {
-            Socket sock = new Socket(AddressFamily.InterNetwork,
-                      SocketType.Dgram, ProtocolType.Udp);
-            IPEndPoint iep = new IPEndPoint(IPAddress.Any, 8081);
-            sock.Bind(iep);
-            EndPoint ep = (EndPoint)iep;
 
-            
-                
-                byte[] zdata = new byte[1024];
-                int recv = sock.ReceiveFrom(zdata, ref ep);
-                string stringData = Encoding.ASCII.GetString(zdata);
+            UdpClient listener = new UdpClient(8101);
+            IPEndPoint groupEP = new IPEndPoint(IPAddress.Any, 8101);
+            while (true)
+            {
+                byte[] bytes = listener.Receive(ref groupEP);
+                a = Encoding.UTF8.GetString(bytes);
 
-                return stringData;
-            
-          
-            
- 
+
+
+            }
         }
 
-        public int recv { get; set; }
+      
+            
+           
+
+
+
+
+        
+
+
     }
 }
+
