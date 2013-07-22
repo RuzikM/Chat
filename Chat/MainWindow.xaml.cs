@@ -41,6 +41,11 @@ namespace WpfApplication1
             Clients client = new Clients();
             client.SendName(login.templogin); // send login trough UDP
 
+
+            Server server = new Server();
+
+            Thread listenmsg = new Thread(() => server.GetMessage(ref msg));
+            listenmsg.Start();
             
         }
 
@@ -48,10 +53,7 @@ namespace WpfApplication1
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Server server = new Server();
-
-            Thread listenmsg = new Thread(() => server.GetMessage(ref msg));
-            listenmsg.Start();
+            
         }
         
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -61,11 +63,12 @@ namespace WpfApplication1
 
         private void listBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
-           
-               
-            
-           
+            listBox2.Items.Add(msg);
+            if (msg.StartsWith("*us*"))
+            {
+                listBox1.Items.Add(msg.Substring(4));
+            }   
+
            
         }
 
@@ -102,15 +105,7 @@ namespace WpfApplication1
 
         }
 
-        private void msg_Updated(object sender, DataTransferEventArgs e)
-        {
-            listBox2.Items.Add(msg);
-            if (msg.StartsWith("*us*"))
-            {
-
-                listBox1.Items.Add(msg.Substring(4));
-            }   
-        }
+       
 
    }
 }
