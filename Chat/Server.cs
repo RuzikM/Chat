@@ -19,7 +19,8 @@ namespace WpfApplication1
             {
                 byte[] bytes = listener.Receive(ref groupEP);
                 a = Encoding.UTF8.GetString(bytes);
-
+                MainWindow ab = new MainWindow();
+                ab.listBox2.Items.Add("a");
 
 
             }

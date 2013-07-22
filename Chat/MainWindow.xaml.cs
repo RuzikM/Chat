@@ -17,7 +17,7 @@ using System.ComponentModel;
 //using System.Net.Sockets;
 using System.IO;
 using System.Threading;
-using System.ComponentModel;
+
 
 
 
@@ -33,7 +33,7 @@ namespace WpfApplication1
 
         public MainWindow()
         {
-           
+
             InitializeComponent();
             login obj = new login();
             listBox1.Items.Add(login.templogin);
@@ -41,16 +41,17 @@ namespace WpfApplication1
             Clients client = new Clients();
             client.SendName(login.templogin); // send login trough UDP
 
-            Server server = new Server();
             
-            Thread listenmsg = new Thread(()=>server.GetMessage(ref msg));
-            listenmsg.Start();
+        }
 
-        
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Server server = new Server();
 
+            Thread listenmsg = new Thread(() => server.GetMessage(ref msg));
+            listenmsg.Start();
         }
         
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -62,12 +63,7 @@ namespace WpfApplication1
         {
            
            
-               listBox2.Items.Add(msg);
-               if (msg.StartsWith("*us*"))
-               {
-                   
-                   listBox1.Items.Add(msg.Substring(4));
-               }   
+               
             
            
            
@@ -92,5 +88,29 @@ namespace WpfApplication1
 
         public string msg = "";
         public string usr = "";
+
+
+        private void Window_TargetUpdated(object sender, DataTransferEventArgs e)
+        {
+            
+
+        }
+
+        private void Window_GotFocus(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
+
+        private void msg_Updated(object sender, DataTransferEventArgs e)
+        {
+            listBox2.Items.Add(msg);
+            if (msg.StartsWith("*us*"))
+            {
+
+                listBox1.Items.Add(msg.Substring(4));
+            }   
+        }
+
    }
 }
