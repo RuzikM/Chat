@@ -39,8 +39,8 @@ namespace WpfApplication1
             listBox1.Items.Add(login.templogin);
 
             Clients client = new Clients();
-            client.SendName(login.templogin); // send login trough UDP
-
+            Thread sendusername=new Thread(()=>client.SendName(login.templogin)); // send login trough UDP
+            sendusername.Start();
 
             Server server = new Server();
 
