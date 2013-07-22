@@ -37,6 +37,7 @@ namespace WpfApplication1
             InitializeComponent();
             login obj = new login();
             listBox1.Items.Add(login.templogin);
+            
 
             Clients client = new Clients();
             Thread sendusername=new Thread(()=>client.SendName(login.templogin)); // send login trough UDP
@@ -93,17 +94,7 @@ namespace WpfApplication1
         public string usr = "";
 
 
-        private void Window_TargetUpdated(object sender, DataTransferEventArgs e)
-        {
-            
-
-        }
-
-        private void Window_GotFocus(object sender, RoutedEventArgs e)
-        {
-            
-
-        }
+       
 
        
 

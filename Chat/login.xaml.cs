@@ -23,7 +23,16 @@ namespace WpfApplication1
         public login()
         {
             InitializeComponent();
+            textBox1.KeyDown += textBox1_KeyDown;
 
+        }
+
+        void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                button1_Click(sender, e);
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -65,5 +74,6 @@ namespace WpfApplication1
         {
             textBox1.Text = "";
         }
+       
     }
 }
