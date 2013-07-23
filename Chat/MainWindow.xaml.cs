@@ -93,6 +93,13 @@ namespace WpfApplication1
         public string msg = "";
         public string usr = "";
 
+        private void clos_Closed(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+       
+
 
        
 
