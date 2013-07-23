@@ -35,8 +35,7 @@ namespace WpfApplication1
         {
 
             InitializeComponent();
-            login obj = new login();
-            listBox1.Items.Add(login.templogin);
+
 
 
             Clients client = new Clients();
@@ -69,11 +68,7 @@ namespace WpfApplication1
 
         private void listBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            listBox2.Items.Add(msg);
-            if (msg.StartsWith("*us*"))
-            {
-                listBox1.Items.Add(msg.Substring(4));
-            }   
+            
 
            
         }
@@ -87,7 +82,7 @@ namespace WpfApplication1
                  string message = login.templogin + ":" + " " + textBox1.Text;
                  string sendmsg = "*"+listBox1.SelectedItem.ToString()+"*";
                  client.SendMessage(sendmsg + message); //sending message trough UDP}
-                 listBox2.Items.Add(message);
+                 
                  textBox1.Text = "";
              }
              catch { }
@@ -114,6 +109,10 @@ namespace WpfApplication1
         private void UpdateMessage()
         {
             listBox2.Items.Add(msg);
+            if (msg.StartsWith("*us*"))
+            {
+                listBox1.Items.Add(msg.Substring(4));
+            }   
         }
 
         private void DoSomething(object sender, MsgChangedEventArgs e)
