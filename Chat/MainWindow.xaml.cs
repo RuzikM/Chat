@@ -37,7 +37,7 @@ namespace WpfApplication1
             InitializeComponent();
             login obj = new login();
             listBox1.Items.Add(login.templogin);
-            
+            this.Closed += MainWindow_Closed;
 
             Clients client = new Clients();
             Thread sendusername=new Thread(()=>client.SendName(login.templogin)); // send login trough UDP
@@ -49,6 +49,13 @@ namespace WpfApplication1
             listenmsg.Start();
             
         }
+
+        void MainWindow_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        
 
 
 
