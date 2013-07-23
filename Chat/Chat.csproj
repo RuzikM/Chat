@@ -75,6 +75,7 @@
     </ApplicationDefinition>
     <Compile Include="Clients.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="UdpState.cs" />
     <Page Include="login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

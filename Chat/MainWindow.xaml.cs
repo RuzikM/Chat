@@ -45,8 +45,10 @@ namespace WpfApplication1
 
             Server server = new Server();
 
-            Thread listenmsg = new Thread(() => server.GetMessage(ref msg));
-            listenmsg.Start();
+            server.GetMessage();
+            
+
+            server.MsgChanged += this.DoSomething;
             
         }
 
@@ -93,20 +95,44 @@ namespace WpfApplication1
  
         }
 
-        public string msg = "";
-        public string usr = "";
+        private string _msg = "";
+        public string msg
+        {
+            set
+            {
+                _msg = value;
+
+                this.Dispatcher.BeginInvoke(new Action(UpdateMessage), null);
+            }
+
+            get
+            {
+                return _msg;
+            }
+        }
+
+        private void UpdateMessage()
+        {
+            listBox2.Items.Add(msg);
+        }
+
+        private void DoSomething(object sender, MsgChangedEventArgs e)
+        {
+            
+           msg= e.Mem;
+        }
+
 
         private void clos_Closed(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
 
-       
 
 
-       
 
-       
+  
+    }
+   
 
-   }
 }
