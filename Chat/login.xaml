@@ -5,7 +5,7 @@
     <Grid>
         <Label Content="Troll Chat" Height="34" HorizontalAlignment="Left" Margin="88,12,0,0" Name="label1" VerticalAlignment="Top" Foreground="White" FontSize="20" Width="103" />
         <Image Height="121" HorizontalAlignment="Left" Margin="58,57,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="165" ImageFailed="image1_ImageFailed_1" Source="/Chat;component/Images/untitled1.png" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="84,192,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" TextChanged="textBox1_TextChanged" GotFocus="textBox1_GotFocus" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="84,192,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" TextChanged="textBox1_TextChanged" GotFocus="textBox1_GotFocus" TabIndex="0" />
         <Button Content="Enter Chat" Height="23" HorizontalAlignment="Left" Margin="110,219,0,0" Name="button1" VerticalAlignment="Top" Width="75" Foreground="White" Click="button1_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

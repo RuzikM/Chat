@@ -127,6 +127,14 @@ namespace WpfApplication1
             Environment.Exit(0);
         }
 
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key ==Key.Enter)
+            {
+                button1_Click(sender, e);
+            }
+        }
+
 
 
 

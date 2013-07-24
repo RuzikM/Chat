@@ -23,6 +23,7 @@ namespace WpfApplication1
         public login()
         {
             InitializeComponent();
+            textBox1.Focus();
             textBox1.KeyDown += textBox1_KeyDown;
 
         }
